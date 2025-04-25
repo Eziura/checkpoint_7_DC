@@ -17,12 +17,41 @@ JS tiene un modelo de ejecución asíncrono basado en eventos. Es un forma de or
 
 Esta carácterística hace que JS sea un lenguaje que permite tener fluidez y buena capacidad de respuesta evitando bloquear todo el proceso mientras ocurren operaciones lentas.
 
-**3.** 
+**3. Lenguaje interpretado y dinámicamente tipado**
+
+JS es un lenguaje interpretado, lo que signfica que el código se ejecuta directamente cada línea por el intérprete del navegador o con Node.js en el servidor, sin necesitar una compilación externa. Además, es dinámicamente tipado, por lo que no se necesita especificar el tipo de dato cuando se crea una variable y el tipo de dato puede cambiar durante el código.
+```
+let mensaje = "Hola mundo!"; // Primero es tipo string
+console.log(typeof mensaje); // Si miramos el tipo, el output sería string
+
+mensaje = 1234; // Aquí se cambia la variable y como ya no es una str, se cambia directamente a numero
+console.log(typeof mensaje); // Por lo que si miramos el tipo de dato, sería number
+```
+
+Esta es por ejemplo la diferencia que tiene con Java o TypeScript ya que en estos dos casos cada variable tiene que tener especifcado el tipo de dato al crearla.
 
 ## 2. ¿Cuáles son algunos tipos de datos JS?
 
 Los tipos de datos más conocidos son Number, String, Boolean, Null y Symbol().
 
+## 2. ¿Cuáles son algunos tipos de datos JS?
+
+Los tipos de datos más conocidos son `Number`, `String`, `Boolean`, `Null` y `Symbol()`.
+
+## 2. ¿Cuáles son algunos tipos de datos JS?
+
+Los tipos de datos más conocidos son los siguientes:
+
+| Tipo        | Descripción                                     | Ejemplos                      |
+|-------------|-------------------------------------------------|------------------------------|
+| `Number`    | Valores numéricos (enteros, decimales, NaN) | `10`, `3.14`, `NaN`          |
+| `String`    | Caracteres de texto              | `'foo'`, `'The quick brown fox jumps over the lazy dog'`          |
+| `Boolean`   | Valores lógicos verdad o falso                                 | `true`, `false`              |
+| `Null`      | Valor ausente intencionadamente                 | `null`                       |
+| `Symbol()`  | Identificadores únicos e inmutables             | `Symbol('password')`      |
+| `Undefined` | Variable sin un valor asignado                     | `let x; console.log(x);`     |
+
+Los de tipo Number pueden ser `int` que serían enteros o `float` que serían los decimales , además del `NaN` (not a number) que indica que el valor no es un número y sería por ejemplo cuando hay operaciones que no son válidas como división de 0 entre 0. Por otro lado, Symbol es un tipo especial que por ejemplo se puede usar para contraseñas, ya que por ejemplo al pasar a json los datos, los datos Symbol no se serializan en json (no aparecen). 
 
 ## 3.¿Cuáles son las tres funciones de String en JS?
 
