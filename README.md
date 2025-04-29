@@ -32,15 +32,7 @@ Esta es por ejemplo la diferencia que tiene con Java o TypeScript ya que en esto
 
 ## 2. ¿Cuáles son algunos tipos de datos JS?
 
-Los tipos de datos más conocidos son Number, String, Boolean, Null y Symbol().
-
-## 2. ¿Cuáles son algunos tipos de datos JS?
-
-Los tipos de datos más conocidos son `Number`, `String`, `Boolean`, `Null` y `Symbol()`.
-
-## 2. ¿Cuáles son algunos tipos de datos JS?
-
-Los tipos de datos más conocidos son los siguientes:
+Los tipos de datos más conocidos son number, string, boolean, null, undefined, symbol(), object y array.
 
 | Tipo        | Descripción                                     | Ejemplos                      |
 |-------------|-------------------------------------------------|------------------------------|
@@ -50,13 +42,40 @@ Los tipos de datos más conocidos son los siguientes:
 | `Null`      | Valor ausente intencionadamente                 | `null`                       |
 | `Symbol()`  | Identificadores únicos e inmutables             | `Symbol('password')`      |
 | `Undefined` | Variable sin un valor asignado                     | `let x; console.log(x);`     |
+| `Object`    | Colección de propiedades (clave-valor)     | `{}`, `{ nombre: 'Pepito', edad: 26 }` |
+| `Array`     | Colección ordenada de elementos (pueden ser de distinto tipo)                 | `[]`, `[1, 'uno', true]`       |
 
-Los de tipo Number pueden ser `int` que serían enteros o `float` que serían los decimales , además del `NaN` (not a number) que indica que el valor no es un número y sería por ejemplo cuando hay operaciones que no son válidas como división de 0 entre 0. Por otro lado, Symbol es un tipo especial que por ejemplo se puede usar para contraseñas, ya que por ejemplo al pasar a json los datos, los datos Symbol no se serializan en json (no aparecen). 
+Los de tipo Number pueden ser `int` que serían enteros o `float` que serían los decimales , además del `NaN` (not a number) que indica que el valor no es un número y sería por ejemplo cuando hay operaciones que no son válidas como división de 0 entre 0 (0/0). Por otro lado, Symbol es un tipo especial que por ejemplo se puede usar para contraseñas, ya que por ejemplo al pasar a json los datos, los datos Symbol no se serializan en json (no aparecen). 
 
 ## 3.¿Cuáles son las tres funciones de String en JS?
 
-Las tres funciones en String en JS son length(), slice() y charAt().
+Las tres funciones en String en JS son length, slice() y charAt().
 
+Realmente length no es una función en sí, más bien una propiedad, pero es de los métodos más comunes en strings. Esta propiedad te dice la cantidad de carácteres de la cadena, pero no es una función con paréntesis, sino que se accede así:
+
+```
+let cadena = "Hola";
+console.log(cadena.length);
+```
+Esto cuenta la cantidad de carácteres de hola e imprime 4.
+
+En el caso de la funcion slice(), esta extrae la proporcion de la cadena especificada. Se especifica dentro del paréntesis el índice de inicio y el de fin (si no se incluye se extrae hasta el final, es opcional). En el caso de especificar un número negativo, significa desde atrás hacia delante de la cadena.
+
+```
+let texto = "Hoy hace un día soleado";
+console.log(texto.slice(0,4)); // Imprime: Hoy
+console.log(texto.slice(-7)); // Imprime: soleado
+console.log(texto.slice(12)); // Imprime: día soleado
+console.log(texto.slice(4,-8)); // Imprime: hace un día
+```
+
+Por último, charAt() muestra el caracter que está en el índice especificado dentro del paréntesis en la cadena.Por ejemplo:
+
+```
+let cadena = "Hola";
+console.log(cadena.charAt(0)); // Esto imprime: H
+console.log(cadena.charAt(3)); // Y esto imprime: a
+```
 Además de estas funciones también hay otras como indexOf(), lastIndexOf(), toUppercase(), toLowercase(), includes(), startsWith(), endsWith(), replace(), repeat(), etc.
 
 ## 4.¿Qué es un condicional?
@@ -113,6 +132,28 @@ if (edad >= 18) {
 Esto es debido a que se va cargando en orden. Por lo tanto, si por ejemplo la variable edad es 5, comenzando desde el inicio, es mayor o igual a 18? no, entonces pasa al siguiente bloque de else if. En este bloque mira si la edad es mayor o igual a 7, como no es, pasa al bloque else, por lo que en este caso se imprime "Puedes comer el menú infantil".
 
 ## 5.¿Qué es un operador ternario?
+Un operador ternario en JavaScript (y en muchos otros lenguajes de programación) es una forma concisa de escribir una sentencia condicional if-else en una sola línea. Recibe su nombre de los tres operandos que utiliza:
+
+La condición que se va a evaluar.
+La expresión que se ejecuta si la condición es verdadera.
+La expresión que se ejecuta si la condición es falsa.
+La sintaxis del operador ternario es la siguiente:
+
+Se escribe con el siguiente formato:
+condición ? expresiónSiVerdadera : expresiónSiFalsa;
+
+1. Primero, se evalúa la condición.
+2. Si la condición es true, se ejecuta la expresiónSiVerdadera y su resultado es devuelto.
+3. Si la condición es false, se ejecuta la expresiónSiFalsa y su resultado es devuelto.
+
+Por ejemplo para saber si alguien es mayor o menor de edad:
+
+```
+let edad = 20;
+let mensaje = edad >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
+console.log(mensaje); // Output: "Eres mayor de edad"
+```
+
 
 ## 6.¿Cuál es la diferencia entre una declaración de función y una expresión de función?
 
