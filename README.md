@@ -233,6 +233,7 @@ La palabra clave 'this' en JS se refiere a un obbeto que está llamando a la fun
 Voy a explicar qué es this con una analogía con la que considero que se comprende bastante bien el contexto. Vamos a imaginar que this es un focoque puede iluminar distintos objetos dependiendo de dónde está y quién está moviendolo. Tenemos cuatro posibles escenarios que pueden suceder:
 
 **1.** El foco está en el techo sin que nadie lo esté moviendo y está iluminando toda la habitación de forma general, sin estar iluminando más a ningún lugar en específico. Esto en JS sería semejante al contexto global, por ejemplo la ventana del navegador o un objeto general de Node.js, pero nada específico, sólo general.
+
 **2.** El foco ahora lo tiene una persona y lo usa para enfocar algún objeto en concreto de su cuarto, por ejemplo un armario. La persona está realizando una función que sería tener el foco dentro de su función y esta es específicamente para enfocar el armario. Esta misma acción la podemos traspasar a JS de la siguiente manera:
 
 ```
