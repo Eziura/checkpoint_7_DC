@@ -229,12 +229,6 @@ A pesar de haber definido la función después de haberla llamado, debido al hoi
 ## 7.¿Qué es la palabra clave "this" en JS?
 
 La palabra clave 'this' en JS se refiere a un obbeto que está llamando a la función, es decir, que está vinculado a una función cuando ésta es llamada. El valor que tiene se define en el momento en el que se llama a la función y no cuando se define. Generalmente estos son los distintos comportamientos:
-
-- **Sin usarlo en clases ni funciones:** Aquí tiene dos formas, en el navegador, que se referiría al objeto global de window y en node.js que en este caso sería un objeto vacío {}.
- 
-- **En funciones simples:** En el caso de funciones que se llaman solas, sin ser un método de un objeto, hay dos modos, el estricto y no estricto:
-
-     - En modo no estricto, tener this dentro de la funci
  
 Voy a explicar qué es this con una analogía con la que considero que se comprende bastante bien el contexto. Vamos a imaginar que this es un focoque puede iluminar distintos objetos dependiendo de dónde está y quién está moviendolo. Tenemos cuatro posibles escenarios que pueden suceder:
 
