@@ -132,29 +132,78 @@ if (edad >= 18) {
 Esto es debido a que se va cargando en orden. Por lo tanto, si por ejemplo la variable edad es 5, comenzando desde el inicio, es mayor o igual a 18? no, entonces pasa al siguiente bloque de else if. En este bloque mira si la edad es mayor o igual a 7, como no es, pasa al bloque else, por lo que en este caso se imprime "Puedes comer el menú infantil".
 
 ## 5.¿Qué es un operador ternario?
-Un operador ternario en JavaScript (y en muchos otros lenguajes de programación) es una forma concisa de escribir una sentencia condicional if-else en una sola línea. Recibe su nombre de los tres operandos que utiliza:
 
-La condición que se va a evaluar.
-La expresión que se ejecuta si la condición es verdadera.
-La expresión que se ejecuta si la condición es falsa.
-La sintaxis del operador ternario es la siguiente:
-
-Se escribe con el siguiente formato:
-condición ? expresiónSiVerdadera : expresiónSiFalsa;
+Un operador ternario es una forma concisa de escribir una sentencia condicional if-else en una sola línea. Se denomina ternario por los tres operandos que utiliza:
 
 1. Primero, se evalúa la condición.
 2. Si la condición es true, se ejecuta la expresiónSiVerdadera y su resultado es devuelto.
 3. Si la condición es false, se ejecuta la expresiónSiFalsa y su resultado es devuelto.
 
+El operador ternario se escribe de la siguiente forma: 
+
+```
+condición ? expresiónSiVerdadera : expresiónSiFalsa;
+```
+
 Por ejemplo para saber si alguien es mayor o menor de edad:
 
 ```
 let edad = 20;
-let mensaje = edad >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
-console.log(mensaje); // Output: "Eres mayor de edad"
+let mensaje = (edad >= 18) ? "Mayor de edad" : "Menor de edad";
+console.log(mensaje); // Esto imprime: "Mayor de edad"
 ```
 
+Aquí la condición es si la edad es mayor o igual a 18 (edad >= 18). ExpresionSiVerdadera es "Mayor de edad" y se imprime cuando la edad cumple con la condición. expresiónSiFalsa es "Menor de edad" y se imprime si la edad es 17 o menor. Se ha creado una variable llamada mensaje para imprimir la condición.
 
 ## 6.¿Cuál es la diferencia entre una declaración de función y una expresión de función?
+
+Las principales diferencias son su definición y la forma en la que se usa cada una.
+
+**1. Declaración de función**
+
+  - Una declaración se define con la palabra 'function' y después el nombre que se le quiere dar a la función junto al parámetro que va en la función que está dentro del paréntesis (si es que se le pasa un parámetro) y seguido del cuerpo de la función. Por ejemplo, esta sería una función que te da la hora:
+
+```
+function reloj(hora) {
+  return "Son las" + hora;
+}
+```
+
+  - Otra característica importante en la declaración es el hoisting. Esto significa que puedes llamar a la función antes de que aparezca en el código y no va a dar un error al hacerlo. Por ejemplo puedo llamar a una funcion de saludo y después definirla:
+
+```
+console.log(saludo("Pepito")); //La llamo sin estar definida todavía
+
+function saludo(nombre) {
+  return "¡Hola " + nombre +"!";
+}
+```
+A pesar de haber definido la función después de haberla llamado, debido al hoisting funciona perfectamente, es decir, se imprimiría: ¡Hola Pepito!
+
+**2. Expresión de función**
+
+  - Una expresión de función es crear o de forma anónima o dentro de una variable la función. Por ejemplo, vamos a crear dos expresiones de función que sean para sumar, una de forma anónima y la otra nombrada:
+```
+const sumaAnonima = function(a,b) {
+  return a + b;
+};
+console.log(sumaAnonima(1,2)); // Esto imprime 3
+
+const sumaNombrada = function sumar(c,d) {
+  return c + d;
+};
+console.log(sumaNombrada(1,2)); //Esto también imprime 3
+```
+
+  - Otra característica importante en la declaración es el hoisting. Esto significa que puedes llamar a la función antes de que aparezca en el código y no va a dar un error al hacerlo. Por ejemplo puedo llamar a una funcion de saludo y después definirla:
+
+```
+console.log(saludo("Pepito")); //La llamo sin estar definida todavía
+
+function saludo(nombre) {
+  return "¡Hola " + nombre +"!";
+}
+```
+A pesar de haber definido la función después de haberla llamado, debido al hoisting funciona perfectamente, es decir, se imprimiría: ¡Hola Pepito!
 
 ## 7.¿Qué es la palabra clave "this" en JS?
