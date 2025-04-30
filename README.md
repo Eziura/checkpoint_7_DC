@@ -4,7 +4,7 @@
 
 JavaScript (JS) tiene varias diferencias con otros tipos de lenguaje como por ejemplo Python o Java.
 
-**1. Vinculción con el navegador web**
+**1. Vinculación con el navegador web**
 
   JS tiene un vínculo ditecto con los navegadores web (Chrome, Firefox, etc.). Esto le permite ejecutarse directamente en el navegador sin tener que instalar nada extra. En cambio, en los demás lenguajes, se necesitan intérpretes y entornos de ejecución. Gracias a esta característica, JS es el lenguaje más usado para el desarrollo web del lado del cliente.
 
@@ -15,7 +15,7 @@ JS tiene un modelo de ejecución asíncrono basado en eventos. Es un forma de or
 - **Asíncrono:** Que sea asíncrono significa que al ejecutarse el programa, si hay una tarea que está tardando mucho, en vez de quedarse esperando a que termine y bloquearse, el programa sigue ejecutando otras cosas mientras tanto y cuando finaliza la tarea lenta, se ejecuta una función llamada callback (llamada de vuelta) para manejar el resultado.
 - **Basado en eventos:** Por otro lado, que sea basado en eventos significa que reacciona ante eventos o sucesos como por ejemplo clicks del usuario, respuestas de la red, etc.
 
-Esta carácterística hace que JS sea un lenguaje que permite tener fluidez y buena capacidad de respuesta evitando bloquear todo el proceso mientras ocurren operaciones lentas.
+Esta característica hace que JS sea un lenguaje que permite tener fluidez y buena capacidad de respuesta evitando bloquear todo el proceso mientras ocurren operaciones lentas.
 
 **3. Lenguaje interpretado y dinámicamente tipado**
 
@@ -76,7 +76,27 @@ let cadena = "Hola";
 console.log(cadena.charAt(0)); // Esto imprime: H
 console.log(cadena.charAt(3)); // Y esto imprime: a
 ```
-Además de estas funciones también hay otras como indexOf(), lastIndexOf(), toUppercase(), toLowercase(), includes(), startsWith(), endsWith(), replace(), repeat(), etc.
+Además de estas funciones, también existen otras que pueden ser muy útiles:
+
+ - indexOf(): Sirve para saber en qué posición aparece por primera vez un texto dentro de otro. Si no lo encuentra, devuelve -1. Por ejemplo: "Hola mundo".indexOf("mundo") imprimiría 5
+
+ - lastIndexOf(): Hace lo mismo que `indexOf`, pero empezando desde el final. Devuelve la última posición en la que aparece el texto. Por ejemplo: "Hola".lastIndexOf("a") imprimiría 3
+
+ - toUpperCase(): Convierte todo el texto a mayúsculas. Por ejemplo: "hola".toUpperCase() imprimiría "HOLA"
+
+ - toLowerCase(): Convierte todo el texto a minúsculas. Por ejemplo: "HOLA".toLowerCase() imprimiría "hola"
+
+ - includes(): Revisa si un texto está contenido dentro de otro. Devuelve `true` si lo encuentra, y `false` si no. Por ejemplo: "JavaScript".includes("Script") imprimiría true y "JavaScript".includes("Hola") sería false
+
+ - startsWith(): Comprueba si el texto empieza con una palabra o letra especificada. Por ejemplo: "JavaScript".startsWith("Java") imprimiría true
+
+ - endsWith(): Como la anterior, pero verifica si el texto termina con la palabra especificada. Por ejemplo: "JavaScript".endsWith("Script") imprimiría true
+
+ - replace(): Permite cambiar una parte del texto por otra especificada. Por ejemplo: "Hola mundo".replace("mundo", "a todos") imprimiría "Hola a todos"
+
+ - repeat(): Repite el mismo texto las veces que le pongas. Por ejemplo: "Hola".repeat(3) imprimiría "HolaHolaHola"
+
+
 
 ## 4.¿Qué es un condicional?
 
@@ -118,7 +138,7 @@ if (edadTres <= 8) {
 }
 ```
 
-En este caso, los niños de menor o igual edad a 8 comen el menú infantil, los de entre 8 y 17 (incluido) comen el menú juvenil y los mayores de 18 el manú adulto. Otra forma de escribir el condicional anterior sin hacer uso de && sería:
+En este caso, los niños de menor o igual edad a 8 comen el menú infantil, los de entre 8 y 17 (incluido) comen el menú juvenil y los mayores de 18 el menú adulto. Otra forma de escribir el condicional anterior sin hacer uso de && sería:
 
 ```
 if (edad >= 18) {
@@ -207,3 +227,81 @@ function saludo(nombre) {
 A pesar de haber definido la función después de haberla llamado, debido al hoisting funciona perfectamente, es decir, se imprimiría: ¡Hola Pepito!
 
 ## 7.¿Qué es la palabra clave "this" en JS?
+
+La palabra clave 'this' en JS se refiere a un obbeto que está llamando a la función, es decir, que está vinculado a una función cuando ésta es llamada. El valor que tiene se define en el momento en el que se llama a la función y no cuando se define. Generalmente estos son los distintos comportamientos:
+
+- **Sin usarlo en clases ni funciones:** Aquí tiene dos formas, en el navegador, que se referiría al objeto global de window y en node.js que en este caso sería un objeto vacío {}.
+ 
+- **En funciones simples:** En el caso de funciones que se llaman solas, sin ser un método de un objeto, hay dos modos, el estricto y no estricto:
+
+     - En modo no estricto, tener this dentro de la funci
+ 
+Voy a explicar qué es this con una analogía con la que considero que se comprende bastante bien el contexto. Vamos a imaginar que this es un focoque puede iluminar distintos objetos dependiendo de dónde está y quién está moviendolo. Tenemos cuatro posibles escenarios que pueden suceder:
+
+1. El foco está en el techo sin que nadie lo esté moviendo y está iluminando toda la habitación de forma general, sin estar iluminando más a ningún lugar en específico. Esto en JS sería semejante al contexto global, por ejemplo la ventana del navegador o un objeto general de Node.js, pero nada específico, sólo general.
+2. El foco ahora lo tiene una persona y lo usa para enfocar algún objeto en concreto de su cuarto, por ejemplo un armario. La persona está realizando una función que sería tener el foco dentro de su función y esta es específicamente para enfocar el armario. Esta misma acción la podemos traspasar a JS de la siguiente manera:
+
+```
+const persona = {
+    nombre: "Pepito",
+    enfocarObjetoCuarto: function(objetoCuarto) {
+      console.log(this.nombre + " está enfocando al " + objetoCuarto);
+    }
+  };
+  
+  console.log(persona.enfocarObjetoCuarto("armario"));
+```
+Y usando el this en esta funcion simple, que en este caso this es Pepito, tendríamos de output: "Pepito está enfocando al armario".
+
+
+3. En este tercer escenario por ejemplo Pepito le deja el foco a María y le dice que le enfoque ella el armario diciéndola 'María (this), enfocame al armario'. El foco no es propiedad de María, le deja usarlo en un momento específico, es decir, cambia el valor de this:
+
+```
+function enfocar() {
+    console.log(`${this.nombre} está enfocando el armario.`); // this cambia según el nombre
+  }
+  
+  const pepito = { nombre: "Pepito" };
+  const maría = { nombre: "María" };
+  
+  enfocar.call(pepito);   // This es pepito
+  enfocar.call(maría);  // Ahora this es maría
+
+```
+
+En el primer caso, this sería Pepito y diría "Pepito está enfocando el armario", y en el segundo caso lo hemos forzado a cambiar a María, por lo que diría: "María está enfocando el armario".
+
+4. El último escenario sería por ejemplo un foco inteligente que enfoca de forma programada a unos actores de teatro y siempre persigue al actor enfocado aunque se mueva porque se le vincula. Esto sería como las funciones flecha de JS, en estos casos el this se refiere al contexto donde están creadas. Así sería el ejemplo del foco en código:
+
+```
+const actuacion = {
+    acto: "Blancanieves",
+    actores: ["Pepito", "María"],
+    enfocarActores: function() {
+      this.actores.forEach(actor => {
+        console.log(actor + " tiene el foco en la función de " + this.acto);
+      });
+    }
+  };
+  
+  actuacion.enfocarActores();
+```
+Como se puede ver, aqui tenemos this fuera de la flecha (this.actores) y this dentro de la flecha (this.acto). El this fuera de la flecha se refiere al objeto de la actuación porque enfocarActores es un método de el objeto. En el caso de dentro de la función con la flecha, el comportamiento es distinto. Las funciones con flecha no tienen su propio this, lo heredan el valor de this de donde fueron definidos. En este caso, como está dentro de enfocarActores, hereda el this de enfocarAcores cuando se ejecuta.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
