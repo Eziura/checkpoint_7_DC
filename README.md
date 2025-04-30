@@ -232,8 +232,8 @@ La palabra clave 'this' en JS se refiere a un obbeto que está llamando a la fun
  
 Voy a explicar qué es this con una analogía con la que considero que se comprende bastante bien el contexto. Vamos a imaginar que this es un focoque puede iluminar distintos objetos dependiendo de dónde está y quién está moviendolo. Tenemos cuatro posibles escenarios que pueden suceder:
 
-1. El foco está en el techo sin que nadie lo esté moviendo y está iluminando toda la habitación de forma general, sin estar iluminando más a ningún lugar en específico. Esto en JS sería semejante al contexto global, por ejemplo la ventana del navegador o un objeto general de Node.js, pero nada específico, sólo general.
-2. El foco ahora lo tiene una persona y lo usa para enfocar algún objeto en concreto de su cuarto, por ejemplo un armario. La persona está realizando una función que sería tener el foco dentro de su función y esta es específicamente para enfocar el armario. Esta misma acción la podemos traspasar a JS de la siguiente manera:
+**1.** El foco está en el techo sin que nadie lo esté moviendo y está iluminando toda la habitación de forma general, sin estar iluminando más a ningún lugar en específico. Esto en JS sería semejante al contexto global, por ejemplo la ventana del navegador o un objeto general de Node.js, pero nada específico, sólo general.
+**2.** El foco ahora lo tiene una persona y lo usa para enfocar algún objeto en concreto de su cuarto, por ejemplo un armario. La persona está realizando una función que sería tener el foco dentro de su función y esta es específicamente para enfocar el armario. Esta misma acción la podemos traspasar a JS de la siguiente manera:
 
 ```
 const persona = {
@@ -248,7 +248,7 @@ const persona = {
 Y usando el this en esta funcion simple, que en este caso this es Pepito, tendríamos de output: "Pepito está enfocando al armario".
 
 
-3. En este tercer escenario por ejemplo Pepito le deja el foco a María y le dice que le enfoque ella el armario diciéndola 'María (this), enfocame al armario'. El foco no es propiedad de María, le deja usarlo en un momento específico, es decir, cambia el valor de this:
+**3.** En este tercer escenario por ejemplo Pepito le deja el foco a María y le dice que le enfoque ella el armario diciéndola 'María (this), enfocame al armario'. El foco no es propiedad de María, le deja usarlo en un momento específico, es decir, cambia el valor de this:
 
 ```
 function enfocar() {
@@ -265,7 +265,7 @@ function enfocar() {
 
 En el primer caso, this sería Pepito y diría "Pepito está enfocando el armario", y en el segundo caso lo hemos forzado a cambiar a María, por lo que diría: "María está enfocando el armario".
 
-4. El último escenario sería por ejemplo un foco inteligente que enfoca de forma programada a unos actores de teatro y siempre persigue al actor enfocado aunque se mueva porque se le vincula. Esto sería como las funciones flecha de JS, en estos casos el this se refiere al contexto donde están creadas. Así sería el ejemplo del foco en código:
+**4.** El último escenario sería por ejemplo un foco inteligente que enfoca de forma programada a unos actores de teatro y siempre persigue al actor enfocado aunque se mueva porque se le vincula. Esto sería como las funciones flecha de JS, en estos casos el this se refiere al contexto donde están creadas. Así sería el ejemplo del foco en código:
 
 ```
 const actuacion = {
