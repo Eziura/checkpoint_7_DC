@@ -282,21 +282,3 @@ const actuacion = {
   actuacion.enfocarActores();
 ```
 Como se puede ver, aqui tenemos this fuera de la flecha (this.actores) y this dentro de la flecha (this.acto). El this fuera de la flecha se refiere al objeto de la actuación porque enfocarActores es un método de el objeto. En el caso de dentro de la función con la flecha, el comportamiento es distinto. Las funciones con flecha no tienen su propio this, lo heredan el valor de this de donde fueron definidos. En este caso, como está dentro de enfocarActores, hereda el this de enfocarAcores cuando se ejecuta.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
