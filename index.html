@@ -311,7 +311,7 @@ console.log(typeof mensajeNumerico);
                 La estructura básica de un condicional es la palabra if. Por ejemplo, vamos a crear un bloque condicional que permita comer el menú infantil a menores de 8 años (incluidos).
             </p>
             <pre><code class="input">
-let edad = 7
+let edad = 7;
 
 if (edad <= 8) {
   console.log("Puedes comer el menú infantil");
@@ -328,7 +328,7 @@ Puedes comer el menú infantil
                 Esto significa que cuando el bloque de if sea false, pasaría directamente al bloque else:
             </p>
             <pre><code class="input">
-let edadDos = 25
+let edadDos = 25;
 
 if (edadDos <= 8) {
   console.log("Puedes comer el menú infantil");
@@ -350,7 +350,7 @@ Puedes comer el menú adulto
                 Esta nueva condición se añade de la siguiente manera:
             </p>
             <pre><code class="input">
-var edadTres = 15
+var edadTres = 15;
 
 if (edadTres <= 8) {
     console.log("Puedes comer el menú infantil");
@@ -371,11 +371,11 @@ Puedes comer el menú juvenil
             <pre><code class="input">
 if (edad >= 18) {
     console.log("Puedes comer el menú adulto");
-    } else if (edad >= 7) {
-        console.log("Puedes comer el menú juvenil");
-    } else {
-        console.log("Puedes comer el menú infantil");
-    }
+} else if (edad >= 7) {
+    console.log("Puedes comer el menú juvenil");
+} else {
+    console.log("Puedes comer el menú infantil");
+}
             </code></pre>
             <p>
                 Esto es debido a que se va cargando en orden. 
